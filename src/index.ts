@@ -3,7 +3,7 @@ import { generateScopeBitmask } from './lib/generateScopeBitmask';
 import { generateScopeMappings } from './lib/generateScopeMappings';
 import { getScopesFromBitmask } from './lib/getScopesFromBitmask';
 
-class AribtextToken {
+class ArbitexToken {
   private construct: Arbitex;
   public tokenProps: Record<string, any>;
   public bitmask: number = 0;
@@ -106,14 +106,14 @@ class Arbitex {
   /**
    * Generates a new token with the specified properties
    * @param tokenProps {Record<string, any>} - The token properties
-   * @returns {AribtextToken} - The token
+   * @returns {ArbitexToken} - The token
    */
-  public generateToken(tokenProps: Record<string, any>): AribtextToken {
-    return new AribtextToken(this, tokenProps);
+  public generateToken(tokenProps: Record<string, any>): ArbitexToken {
+    return new ArbitexToken(this, tokenProps);
   }
 
-  public parseToken(token: string): AribtextToken {
-    return new AribtextToken(
+  public parseToken(token: string): ArbitexToken {
+    return new ArbitexToken(
       this,
       jwt.verify(token, this.config.privateKey, {
         algorithms: [this.config.algorithm as jwt.Algorithm],
