@@ -1,0 +1,33 @@
+{
+  "name": "arbitex",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/ksafranski/arbitex",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "node --import tsx --test $(find . -name \"*.test.ts\")",
+    "test:watch": "node --import tsx --test --watch $(find . -name \"*.test.ts\")",
+    "test:cov": "node --import tsx --test --experimental-test-coverage --test-reporter spec $(find . -name \"*.test.ts\")",
+    "build": "esbuild src/index.ts --bundle --minify --platform=node --outfile=index.js --sourcemap",
+    "build:types": "tsc src/index.ts --esModuleInterop --emitDeclarationOnly --declaration --outdir types"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.9.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": "prettier --write"
+  }
+}

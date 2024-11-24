@@ -1,0 +1,24 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.renderWhitespace": "all",
+  "mssql.connections": [
+    {
+      "authenticationType": "SqlLogin",
+      "profileName": "corelink",
+      "server": "127.0.0.1",
+      "user": "sa",
+      "password": "",
+      "savePassword": true,
+      "encrypt": "Mandatory"
+    }
+  ],
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  }
+}
