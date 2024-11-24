@@ -66,14 +66,14 @@ In the above the arbitex instance is initiated with the configuration object, th
 
 The store provides the ability to align the token with the most current configuration and support tokens issued with different versions of the configuration. The JWT payload contains a `ver` property which is used to determine the version of the configuration used to generate the token, allowing alignment with the scopes available when the token was issued.
 
-To ensure alignment between the most current configuration and the store, Arbitex provides an `ensureStore` utility function:
+To ensure alignment between the most current configuration and the store, Arbitex provides an `ensureStore` utility function. This function will call the provided callback with the updated store if the store is out of date. The callback should save the updated store to a file or database.
+
+**Note:** The callback function will only run if the store is out of date. If the store is up to date, the callback will not be called.
 
 ```typescript
 await arbitex.ensureStore(await updated => {
-  if (updated) {
-    // Save the updated store. Example, save to local file:
-    // await fs.writeFile('./arbitex-store.json', JSON.stringify(updated));
-  }
+  // Save the updated store. Example, save to local file:
+  // await fs.writeFile('./arbitex-store.json', JSON.stringify(updated));
 });
 ```
 
