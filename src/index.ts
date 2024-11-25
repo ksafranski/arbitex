@@ -30,10 +30,10 @@ class ArbitexToken {
    * Grants the specified scopes to the token
    * @param scopes {string[]} - The scopes to grant
    */
-  public grantScopes(scopes: string[]): void {
+  public grantScopes(scopes: string[], ver?: number): void {
     this.bitmask = generateScopeBitmask(
       scopes,
-      this.construct.store[this.tokenProps.ver],
+      this.construct.store[ver || this.construct.latestMappingsVersion],
       this.construct.opts.throwOnUnknownScope
     );
   }

@@ -34,7 +34,9 @@ To support changes in the scopes over time, it can maintain a store, which is a 
 
 ```typescript
 export const store = {
-  1: {
+  1: { ... },
+  2: { ... },
+  3: {
     'user.read': 1,
     'user.write': 2,
     'user.delete': 3,
@@ -42,8 +44,6 @@ export const store = {
     'projects.create': 5,
     'projects.delete': 6,
   },
-  2: { ... },
-  3: { ... },
 }
 ```
 
