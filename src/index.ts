@@ -29,6 +29,7 @@ class ArbitexToken {
   /**
    * Grants the specified scopes to the token
    * @param scopes {string[]} - The scopes to grant
+   * @param ver {number} - The version of the scope mappings to use, default: latest
    */
   public grantScopes(scopes: string[], ver?: number): void {
     this.bitmask = generateScopeBitmask(
